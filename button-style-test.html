@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Style Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background: #1a1a1a;
+            color: white;
+            min-height: 100vh;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .hero-section {
+            background: #1a1a1a;
+            padding: 60px 0;
+        }
+        .hero-content {
+            max-width: 800px;
+        }
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+        .profile-pics {
+            display: flex;
+            align-items: center;
+        }
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid white;
+            background: #f0f0f0;
+            margin-left: -8px;
+        }
+        .profile-pic:first-child {
+            margin-left: 0;
+        }
+        .social-text {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        /* Modern Hero Button Styles - Updated to match design */
+        .aximo-hero-btn-wrap {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+        
+        .aximo-call-btn {
+            border-radius: 50px;
+            min-width: 280px;
+            max-width: 320px;
+            padding: 18px 24px 18px 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 16px;
+            font-weight: 600;
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            color: #333 !important;
+            border: 2px solid #ffffff;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .aximo-call-btn:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            color: #333 !important;
+            background-color: #f8f9fa;
+            border-color: #e9ecef;
+        }
+        
+        .aximo-call-btn:focus {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 4px rgba(0, 123, 255, 0.25);
+        }
+        
+        .aximo-call-btn:focus-visible {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+        }
+        
+        .aximo-call-btn i {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            font-size: 18px;
+            color: #ffffff;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+        }
+        
+        .aximo-call-btn:hover i {
+            background: linear-gradient(135deg, #0056b3, #004085);
+            color: #ffffff;
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+        }
+        
+        .aximo-call-btn span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex: 1;
+            margin-right: 56px;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+        
+        @media (max-width: 767px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .aximo-hero-btn-wrap {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 16px;
+                margin-top: 32px;
+            }
+            .aximo-call-btn {
+                width: 100%;
+                min-width: auto;
+                max-width: none;
+                padding: 16px 20px 16px 25px;
+                justify-content: center;
+                text-align: center;
+                white-space: normal;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            .aximo-call-btn span {
+                white-space: normal;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                margin-right: 48px;
+            }
+            .aximo-call-btn i {
+                position: static;
+                transform: none;
+                margin-left: 12px;
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+        }
+        
+        .test-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .test-info h3 {
+            margin-top: 0;
+            color: #ffc107;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        .feature-list li::before {
+            content: "✅ ";
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">First we fix, Then we grow!</h1>
+                <p class="hero-subtitle">Before we run ads or post content, we find the real problem — then we solve it. Want to uncover what's holding you back?</p>
+                
+                <div class="social-proof">
+                    <div class="profile-pics">
+                        <div class="profile-pic"></div>
+                        <div class="profile-pic"></div>
+                        <div class="profile-pic"></div>
+                    </div>
+                    <span class="social-text">Believed by more than 1200 clients</span>
+                </div>
+                
+                <div class="aximo-hero-btn-wrap">
+                    <a class="aximo-call-btn" href="#" role="button" aria-label="Book Free Consultation - Opens WhatsApp chat">
+                        <span>Book Free Consultation</span>
+                        <i class="icon-call" aria-hidden="true">📞</i>
+                    </a>
+                    <a class="aximo-call-btn" href="#" role="button" aria-label="Start Quiz - Opens qualification form">
+                        <span>Start Quiz</span>
+                        <i class="icon-play" aria-hidden="true">▶️</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-info">
+            <h3>Button Design Features</h3>
+            <ul class="feature-list">
+                <li>Clean white background with subtle shadow</li>
+                <li>Rounded corners (50px border-radius)</li>
+                <li>Blue gradient icons with hover effects</li>
+                <li>Smooth hover animations (lift effect)</li>
+                <li>Proper spacing and typography</li>
+                <li>Responsive design for mobile</li>
+                <li>Accessibility features (ARIA labels, focus states)</li>
+                <li>Modern backdrop blur effect</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Add hover effects for testing
+        document.querySelectorAll('.aximo-call-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Button clicked:', this.querySelector('span').textContent);
+            });
+        });
+    </script>
+</body>
+</html>

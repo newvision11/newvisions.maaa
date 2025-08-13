@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .language-switcher {
+            margin-bottom: 20px;
+        }
+        .lang-btn {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            background: #f0f0f0;
+            cursor: pointer;
+        }
+        .lang-btn.active {
+            background: #007bff;
+            color: white;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+    </style>
+</head>
+<body>
+    <h1>Translation System Test</h1>
+    
+    <div class="language-switcher">
+        <button class="lang-btn active" id="lang-fr-btn" onclick="switchLanguage('fr')">
+            <span class="lang-flag">🇫🇷</span>
+            <span class="lang-text">FR</span>
+        </button>
+        <button class="lang-btn" id="lang-en-btn" onclick="switchLanguage('en')">
+            <span class="lang-flag">🇬🇧</span>
+            <span class="lang-text">EN</span>
+        </button>
+    </div>
+
+    <div class="test-section">
+        <h2 data-translate="home">Home</h2>
+        <p data-translate="heroSubtitle">At New Visions, we fix what's broken—then scale your business with smart websites, ads & content.</p>
+        <button data-translate="contactUs">Contact Us</button>
+    </div>
+
+    <div class="test-section">
+        <h3>Quiz Elements Test</h3>
+        <p data-translate="step">Step</p>
+        <p data-translate="selectLanguage">Select Your Language</p>
+        <p data-translate="whatsYourName">What's your name?</p>
+        <p data-translate="servicesNeeded">Services Needed</p>
+    </div>
+
+    <div class="test-section">
+        <h3>Translation Status</h3>
+        <div id="translation-status"></div>
+        <button onclick="runTranslationTest()">Run Translation Test</button>
+    </div>
+
+    <script src="assets/js/website-translations.js"></script>
+    <script>
+        function runTranslationTest() {
+            const statusDiv = document.getElementById('translation-status');
+            statusDiv.innerHTML = '';
+            
+            // Test 1: Check if translation object exists
+            if (window.websiteTranslations) {
+                statusDiv.innerHTML += '<div class="status success">✅ Translation object loaded successfully</div>';
+            } else {
+                statusDiv.innerHTML += '<div class="status error">❌ Translation object not found</div>';
+                return;
+            }
+            
+            // Test 2: Check if both languages exist
+            if (window.websiteTranslations.fr && window.websiteTranslations.en) {
+                statusDiv.innerHTML += '<div class="status success">✅ Both French and English translations available</div>';
+            } else {
+                statusDiv.innerHTML += '<div class="status error">❌ Missing language translations</div>';
+            }
+            
+            // Test 3: Validate translations
+            if (window.validateTranslations) {
+                const isValid = window.validateTranslations();
+                if (isValid) {
+                    statusDiv.innerHTML += '<div class="status success">✅ All translations validated successfully</div>';
+                } else {
+                    statusDiv.innerHTML += '<div class="status warning">⚠️ Some translations are missing</div>';
+                }
+            } else {
+                statusDiv.innerHTML += '<div class="status error">❌ Validation function not found</div>';
+            }
+            
+            // Test 4: Check current language
+            const currentLang = document.documentElement.lang;
+            statusDiv.innerHTML += `<div class="status success">✅ Current language: ${currentLang}</div>`;
+            
+            // Test 5: Count translatable elements
+            const translatableElements = document.querySelectorAll('[data-translate]');
+            statusDiv.innerHTML += `<div class="status success">✅ Found ${translatableElements.length} translatable elements</div>`;
+        }
+        
+        // Run test on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(runTranslationTest, 1000); // Wait for translations to load
+        });
+    </script>
+</body>
+</html>
+
